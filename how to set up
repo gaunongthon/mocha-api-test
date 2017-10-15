@@ -1,0 +1,15 @@
+How do I get set up?
+Dependencies:
+npm install
+npm install jsonwebtoken
+npm install -g mocha
+How do I run smoke test?
+Update bootstrap.js to have smoke test point at your expected endpoint:
+test\sutaxi\bootstrap.js
+Example:
+global.endpointMikeqa = "https://0d8aksreg6.execute-api.us-east-1.amazonaws.com/qa17";
+Smoke test takes around 6 minutes:
+mocha test/sutaxi/api/smoketest/*
+Trip full-flow smoke test takes around 3 minutes:
+mocha test/sutaxi/api/smoketest/1.setup-drivers.js
+mocha test/sutaxi/api/smoketest/4.trips.js
