@@ -10,8 +10,6 @@
 * Dependencies:
 
 ```
-#!javascript
-
 npm install
 ```
 
@@ -20,7 +18,6 @@ npm install
 * Update bootstrap.js to have global.dev_endpoint point at your expected endpoint:
 
 ```
-#!javascript
 test\bootstrap.js
 ```
 
@@ -28,6 +25,5 @@ test\bootstrap.js
 * Execute smoke test:
 
 ```
-#!javascript
 mocha test/api/smoketest/*
 ```
