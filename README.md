@@ -2,8 +2,7 @@
 
 ### What is this repository for? ###
 
-* opta-api-test
-* Version: 0.1
+* mocha-api-test
 * Based on [Chakram] (https://github.com/dareid/chakram)
 
 ### How do I get set up? ###
@@ -18,17 +17,11 @@ npm install
 
 ### How do I run smoke test? ###
 
-* Update bootstrap.js to have smoke test point at your expected endpoint:
+* Update bootstrap.js to have global.dev_endpoint point at your expected endpoint:
 
 ```
 #!javascript
-test\opta\bootstrap.js
-```
-
-Example:
-```
-#!javascript
-global.dev_endpoint = "https://0d8aksreg6.execute-api.us-east-1.amazonaws.com/qa17";
+test\bootstrap.js
 ```
 
 
@@ -36,5 +29,5 @@ global.dev_endpoint = "https://0d8aksreg6.execute-api.us-east-1.amazonaws.com/qa
 
 ```
 #!javascript
-mocha test/opta/api/smoketest/1.setup_users.js
+mocha test/api/smoketest/*
 ```
