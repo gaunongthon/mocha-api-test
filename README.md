@@ -7,22 +7,47 @@
 
 ### How do I get set up? ###
 
-* Dependencies:
+* Install virtual env
+```
+pip install virtualenv
+```
+
+* Create virtual env
 
 ```
+virtualenv venv
+```
+
+* Start virtual env and install dependencies:
+
+```
+source venv/bin/activate
 npm install
 ```
 
-### How do I run smoke test? ###
-
-* Update bootstrap.js to have global.dev_endpoint point at your expected endpoint:
-
+* Deactivate virtual env
 ```
-test\bootstrap.js
+deactivate
 ```
 
+### How do I set up endpoints? ###
 
-* Execute smoke test:
+* Set endpoints:
+
+```
+config/dev.js
+```
+
+Adding a new endpoint should look like this:
+
+```
+global.endpoint1 = "http://your_endpoint_url"
+```
+
+
+### How do I execute test ? ###
+
+* Running smoke test for all microservices
 
 ```
 mocha test/api/smoketest/*

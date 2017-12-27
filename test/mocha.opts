@@ -1,1 +1,1 @@
--t 10000 ./test/bootstrap.js
+-t 30000 ./config/* ./data/* --reporter mochawesome 

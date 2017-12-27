@@ -6,13 +6,16 @@
   "license": "MIT",
   "dependencies": {
     "extend-object": "1.x.x",
+    "chai": "3.x.x",
     "chai-subset": "1.x.x",
+    "chai-as-promised": "5.x.x",
     "q": "1.x.x",
     "request": "2.x.x",
     "request-debug": "0.x.x",
     "tv4": "1.x.x",
     "mocha": "4.0.1",
-    "jsonwebtoken": "8.x.x"
+    "jsonwebtoken": "8.x.x",
+    "mochawesome": "3.x.x"
   },
   "repository":{}
 }
