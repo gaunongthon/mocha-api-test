@@ -17,15 +17,15 @@ describe("Google Geocode", function() {
 									+ "&radius=" + radius
 									+ "&key=" + key;
 		var req = endpointBeingTested + "?" + queries;
-
-
 		console.log(req)
 		apiResponse = chakram.get(req, params);
-		apiResponse.then(function(json) {
-				console.log(json.body)
-				console.log(" Total found: " + json.body.results.length)
-		})
-		expect(apiResponse).to.have.status(200);
-		return chakram.wait();
+		return apiResponse.then(function(json) {
+				//console.log(json.body)
+				_counter = json.body.results.length;
+				console.log("Result counter: ")
+				console.log(_counter);
+		 		expect(_counter).to.equal(7);
+				expect(apiResponse).to.have.status(200);
+			})
 		})
 });
