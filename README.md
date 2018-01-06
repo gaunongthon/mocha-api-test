@@ -7,39 +7,36 @@
 
 ### How do I get set up? ###
 
-* Install virtual env
+Install virtual env
 ```
 pip install virtualenv
 ```
 
-* Create virtual env
-
+Create virtual env
 ```
 virtualenv venv
 ```
 
-* Start virtual env and install dependencies:
-
+Start virtual env and install dependencies:
 ```
 source venv/bin/activate
 npm install
 ```
 
-* Deactivate virtual env
+Deactivate virtual env
 ```
 deactivate
 ```
 
 ### How do I set up endpoints? ###
 
-* Set endpoints:
+Set endpoints:
 
 ```
 config/dev.js
 ```
 
 Adding a new endpoint should look like this:
-
 ```
 global.endpoint1 = "http://your_endpoint_url"
 ```
@@ -47,8 +44,13 @@ global.endpoint1 = "http://your_endpoint_url"
 
 ### How do I execute test ? ###
 
-* Running smoke test for all microservices
+Running smoke test for all microservices
 
 ```
 mocha test/api/smoketest/*
+```
+
+### How do I view test report? ###
+```
+google-chrome mochawesome-report/mochawesome.html
 ```
