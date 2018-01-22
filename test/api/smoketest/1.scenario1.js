@@ -17,13 +17,12 @@ describe("Google Geocode", function() {
 									+ "&radius=" + radius
 									+ "&key=" + key;
 		var req = endpointBeingTested + "?" + queries;
-		console.log(req)
+		apiHelper.print(this, "\nGET: " + req);
 		apiResponse = chakram.get(req, params);
+		_t = this
 		return apiResponse.then(function(json) {
-				//console.log(json.body)
 				_counter = json.body.results.length;
-				console.log("Result counter: ")
-				console.log(_counter);
+				apiHelper.print(_t, "Result counter: " + _counter);
 		 		expect(_counter).to.equal(7);
 				expect(apiResponse).to.have.status(200);
 			})
