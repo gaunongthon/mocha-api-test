@@ -7,31 +7,17 @@
 
 ### How do I get set up? ###
 
-Install virtual env
+Install dependencies:
 ```
-pip install virtualenv
-```
-
-Create virtual env
-```
-virtualenv venv
-```
-
-Start virtual env and install dependencies:
-```
-source venv/bin/activate
+apt-get update
+apt-get install npm
+apt-get install nodejs-legacy
 npm install
-```
-
-Deactivate virtual env
-```
-deactivate
 ```
 
 ### How do I set up endpoints? ###
 
 Set endpoints:
-
 ```
 config/dev.js
 ```
@@ -41,11 +27,9 @@ Adding a new endpoint should look like this:
 global.endpoint1 = "http://your_endpoint_url"
 ```
 
-
 ### How do I execute test ? ###
 
 Running smoke test for all microservices
-
 ```
 mocha test/api/smoketest/*
 ```
