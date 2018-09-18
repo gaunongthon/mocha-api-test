@@ -15,7 +15,8 @@
     "tv4": "1.x.x",
     "mocha": "4.0.1",
     "jsonwebtoken": "8.x.x",
-    "mochawesome": "3.x.x"
+    "mochawesome": "3.x.x",
+    "node-fetch": "2.x.x"
   },
-  "repository":{}
+  "repository": {}
 }
