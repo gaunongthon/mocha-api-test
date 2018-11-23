@@ -13,6 +13,7 @@ apt-get update
 apt-get install npm
 apt-get install nodejs-legacy
 npm install
+npm install -g mocha
 ```
 
 ### How do I set up endpoints? ###
@@ -35,6 +36,7 @@ mocha test/api/smoketest/*
 ```
 
 ### How do I view test report? ###
+Report will be automatically opened after a run. To change it, go to `test\mocha.opts`, update `autoOpen=false`.
 ```
 google-chrome mochawesome-report/mochawesome.html
 ```
