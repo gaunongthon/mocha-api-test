@@ -1,42 +1,64 @@
 # README #
 
-### What is this repository for? ###
 
-* mocha-api-test
-* Based on [Chakram] (https://github.com/dareid/chakram)
+### What is this repository for? ###
+This is an example about how to use mochajs for doing web services/APIs test.
+
+Details:
+- Based on Mochajs framework https://mochajs.org/
+- Wrapped up by Chakram https://github.com/dareid/chakram
 
 ### How do I get set up? ###
+For Windows, download nodejs from: https://nodejs.org/en/download/
 
-Install dependencies:
+For Linux install dependencies:
+See latest and instruction at: https://github.com/nodesource/distributions#debinstall
 ```
-apt-get update
-apt-get install npm
-apt-get install nodejs-legacy
-npm install
-npm install -g mocha
-```
-
-### How do I set up endpoints? ###
-
-Set endpoints:
-```
-config/dev.js
+sudo apt install curl
+curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
+sudo apt-get install -y nodejs
 ```
 
-Adding a new endpoint should look like this:
+Open Terminal (or GitBash in Windows https://git-scm.com/downloads), installing framework's dependencies with the following commands:
 ```
-global.endpoint1 = "http://your_endpoint_url"
-```
-
-### How do I execute test ? ###
-
-Running smoke test for all microservices
-```
-mocha test/api/smoketest/*
+sudo npm install
+sudo npm install -g mocha
 ```
 
-### How do I view test report? ###
-Report will be automatically opened after a run. To change it, go to `test\mocha.opts`, update `autoOpen=false`.
+### Set up endpoint ###
+
+To set up endpoint, opening file `config/qa.env.js`, then modifying the global.endpoint:
+```
+global.endpoint = "http://your_endpoint_url"
+```
+In order to build a template, I am using the following endpoint
+```
+global.endpoint = "https://reqres.in"
+```
+
+### Eexecute test ###
+
+Execute all test files in `/test`
+```
+mocha test/*/*
+```
+
+Execute only 1 test file
+```
+mocha test/functional/template1.js
+```
+
+There is a cool way to execute test with customised options. See `/test/smoke.opts` for an example how to run smoke test:
+```
+mocha --opts test/smoke.opts
+```
+
+### View test report ###
+
+HTML format report is saved at `mochawesome-report/mochawesome.html`.
+Command line to view report from Terminal Console:
 ```
 google-chrome mochawesome-report/mochawesome.html
 ```
+
+:tada: :fireworks:
