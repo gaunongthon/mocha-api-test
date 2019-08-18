@@ -1,21 +1,17 @@
 {
-  "name": "API-Test-Automation-Start-Kit",
-  "version": "1.5.0",
-  "description": "This is an example of how to use mochajs for APIs/Web-services testing.",
-  "main": "lib/chakram.js",
+  "name": "api-test-starter-kit",
+  "version": "1.0.0",
+  "description": "This is an example of how to use mocha, superagent, chai.",
   "license": "MIT",
   "dependencies": {
-    "extend-object": "1.x.x",
-    "chai": "3.x.x",
-    "chai-subset": "1.x.x",
-    "chai-as-promised": "5.x.x",
-    "q": "1.x.x",
-    "request": "2.x.x",
-    "request-debug": "0.x.x",
-    "tv4": "1.x.x",
-    "mocha": "4.0.1",
-    "mochawesome": "3.x.x",
-    "node-fetch": "2.x.x"
+    "chai": "^4.2.0",
+    "superagent": "^5.1.0",
+    "superagent-absolute": "^1.0.1",
+    "mocha": "^6.2.0",
+    "mochawesome": "^4.1.0"
+  },
+  "scripts": {
+    "smoke": "mocha ./test/smoketest/*"
   },
   "repository": {}
 }

@@ -1,35 +1,34 @@
+'use strict'
+const superagent = require('superagent');
+const superagentAbsolute = require('superagent-absolute');
+const agent = superagent.agent();
+const expect = require('chai').expect;
+const addContext = require('mochawesome/addContext');
+
 describe("Smoke Test Suite", function() {
 
+	var request;
 	// runs before all tests in this block
 	before(function() {
-		 _context = this
-
-		 //Check if token is available (i.e. user is logged in or not)
-		 if (token != "QpwL5tke4Pnpja7X") {
-			//login
-			apiResponse = apiHelper.requestToken();
-			expect(apiResponse).to.have.status(200);
-			return apiResponse.then(function(json) {
-			 token = json.body.token;
-
-			 //only test when having valid token. Feel free to customise based on endpoint design of authentication
-			 if (token != "QpwL5tke4Pnpja7X")
-					_context.skip();
-				});
-			}
+			context = this;
+			request = superagentAbsolute(agent)(endpoint);
 	 });
 
-	it("Get all users from a page",function(){
-			var req = endpoint + "/users?page=2";
-			apiHelper.log(_context, "\nGET: " + req);
-			apiResponse = chakram.get(req);
-
-			return apiResponse.then(function(json) {
-				apiHelper.log(_context, "\nRESPONSE: \n" + JSON.stringify(json.body));
-				expect(apiResponse).to.have.json('total_pages', 4);
-				expect(apiResponse).to.have.status(200);
-			})
-
-			return chakram.wait();
-		})
+	it("Get all users from a page",(done) => {
+		request
+		.get("/users?page=2")
+		.end((err, response) => {
+			 if (err) {
+		     return done(err);
+		   }
+			 expect(response.status).to.equal(200);
+			 addContext(context, {
+				 title: "response.body",
+				 value: response.body
+			 });
+			 const totalPages = response.body.total_pages;
+			 expect(totalPages).to.equal(4);
+		   done();
+		});
+	});
 });

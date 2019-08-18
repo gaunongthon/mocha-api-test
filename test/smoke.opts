@@ -1,1 +1,0 @@
--t 30000 ./config/properties.js ./config/qa.env.js ./testdata/* ./test/smoketest/* --reporter mochawesome  --reporter-options autoOpen=true,reportTitle=API\ Smoke Test\ Report,code=true
