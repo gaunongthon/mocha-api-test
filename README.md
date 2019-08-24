@@ -15,14 +15,14 @@ global.serverUrl = "http://your_endpoint_url"
 ```
 ### Execute test ###
 
-Execute all test files in `/test/smoketest`
+Execute all test files in `/test/smoketest` on `testing` environment
 ```
-npm run smoke
+npm run smoke env/testing.env.js
 ```
 
-Execute only 1 test file
+Execute only 1 test file on `testing` environment
 ```
-mocha test/smoketest/smokesuite.js
+mocha env/testing.env.js test/smoketest/smokesuite.js
 ```
 
 ### View test report ###
