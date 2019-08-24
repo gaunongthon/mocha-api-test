@@ -11,6 +11,7 @@
     "mochawesome": "^4.1.0"
   },
   "scripts": {
+    "setup": "npm install && npm install -g mocha && npm install -g mochawesome",
     "smoke": "mocha ./test/smoketest/*"
   },
   "repository": {}

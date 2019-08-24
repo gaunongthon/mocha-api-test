@@ -4,25 +4,16 @@
 ### What is this repository for? ###
 This is an example about how to use mochajs, superagent, chai for doing web services/APIs test.
 
-### How do I get set up? ###
+### Set up ###
 ```
-npm install
-npm install -g mocha
-npm install -g mochawesome
+npm run setup
 ```
-
-### Set up endpoint ###
-
-To set up endpoint, opening file `config/qa.env.js`, then modifying the global.endpoint:
+### Set up a new environment ###
+To create a new environment, duplicate `env/testing.env.js` and update serverUrl.
 ```
-global.endpoint = "http://your_endpoint_url"
+global.serverUrl = "http://your_endpoint_url"
 ```
-In order to build a template, I am using the following endpoint
-```
-global.endpoint = "https://reqres.in"
-```
-
-### Eexecute test ###
+### Execute test ###
 
 Execute all test files in `/test/smoketest`
 ```

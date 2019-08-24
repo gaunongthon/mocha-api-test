@@ -11,12 +11,12 @@ describe("Smoke Test Suite", function() {
 	// runs before all tests in this block
 	before(function() {
 			context = this;
-			request = superagentAbsolute(agent)(endpoint);
+			request = superagentAbsolute(agent)(serverUrl);
 	 });
 
 	it("Get all users from a page",(done) => {
 		request
-		.get("/users?page=2")
+		.get("/api/haha/2")
 		.end((err, response) => {
 			 if (err) {
 		     return done(err);
@@ -26,8 +26,6 @@ describe("Smoke Test Suite", function() {
 				 title: "response.body",
 				 value: response.body
 			 });
-			 const totalPages = response.body.total_pages;
-			 expect(totalPages).to.equal(4);
 		   done();
 		});
 	});
