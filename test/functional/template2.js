@@ -5,25 +5,21 @@ describe("Functional testing POST method", function() {
 		 _context = this
 
 		 //Check if token is available (i.e. user is logged in or not)
-		 //Feel free to customise based on endpoint design of authentication
+		 //Feel free to customise based on serverUrl design of authentication
 			if (token != "QpwL5tke4Pnpja7X") {
 				//login
 				apiResponse = apiHelper.requestToken();
 				expect(apiResponse).to.have.status(200);
 				return apiResponse.then(function(json) {
 				 token = json.body.token;
-
-				 //only test when having valid token. Feel free to customise based on endpoint design of authentication
-				 if (token != "QpwL5tke4Pnpja7X")
- 						_context.skip();
 					});
 			}
 
    });
 
 	it("Template 2 - Post user",function(){
-		//set up endpoint
-		var req = endpoint + "/users";
+		//set up serverUrl
+		var req = serverUrl + "/users";
 
 		//set up request payload
 		var jsonPayload = {
@@ -58,8 +54,5 @@ describe("Functional testing POST method", function() {
 				expect(json.body.name).to.equal("morpheus");
 				expect(json.body.job).to.equal("leader");
 			})
-
-			//mocha is designed for testing asynchronous requests. wait() here will do the trick to make sure the request is complete before all the assertions can be proceeded.
-			return chakram.wait();
 		})
 });

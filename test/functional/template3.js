@@ -5,25 +5,21 @@ describe("Functional testing PUT method", function() {
 		 _context = this
 
 		 //Check if token is available (i.e. user is logged in or not)
-		 //Feel free to customise based on endpoint design of authentication
+		 //Feel free to customise based on serverUrl design of authentication
 			if (token != "QpwL5tke4Pnpja7X") {
 				//login
 				apiResponse = apiHelper.requestToken();
 				expect(apiResponse).to.have.status(200);
 				return apiResponse.then(function(json) {
 				 token = json.body.token;
-
-				 //only test when having valid token. Feel free to customise based on endpoint design of authentication
-				 if (token != "QpwL5tke4Pnpja7X")
- 						_context.skip();
 					});
 			}
 
    });
 
 	it("Template 3 - Put user",function(){
-		//set up endpoint
-		var req = endpoint + "/users/2";
+		//set up serverUrl
+		var req = serverUrl + "/users/2";
 
 		//set up request payload
 		var jsonPayload = {
@@ -58,15 +54,12 @@ describe("Functional testing PUT method", function() {
 				expect(json.body.name).to.equal("morpheus rodriguez");
 				expect(json.body.job).to.equal("acting leader");
 		})
-
-			//mocha is designed for testing asynchronous requests. wait() here will do the trick to make sure the request is complete before all the assertions can be proceeded.
-		return chakram.wait();
 	})
 
 	//This is just for demo. In real work, we would need to verify user's details to make sure all the updated information were updated
 	it("Template 3 - Get user",function(){
-		//set up endpoint
-		var req = endpoint + "/users/2";
+		//set up serverUrl
+		var req = serverUrl + "/users/2";
 
 		//set up headers
 		var params = {

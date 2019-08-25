@@ -11,25 +11,19 @@ describe("Smoke Test Suite", function() {
 			expect(apiResponse).to.have.status(200);
 			return apiResponse.then(function(json) {
 			 token = json.body.token;
-
-			 //only test when having valid token. Feel free to customise based on endpoint design of authentication
-			 if (token != "QpwL5tke4Pnpja7X")
-					_context.skip();
 				});
 			}
 	 });
 
 	it("Get all users from a page",function(){
-			var req = endpoint + "/users?page=2";
+			var req = serverUrl + "/users?page=2";
 			apiHelper.log(_context, "\nGET: " + req);
 			apiResponse = chakram.get(req);
 
 			return apiResponse.then(function(json) {
-				apiHelper.log(_context, "\nRESPONSE: \n" + JSON.stringify(json.body));
-				expect(apiResponse).to.have.json('total_pages', 4);
 				expect(apiResponse).to.have.status(200);
+				apiHelper.log(_context, "\nRESPONSE: \n" + JSON.stringify(json.body));
+				expect(json).to.have.json('total_pages', 2);
 			})
-
-			return chakram.wait();
 		})
 });

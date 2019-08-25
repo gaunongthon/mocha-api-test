@@ -1,1 +1,3 @@
--t 30000 ./config/properties.js ./config/qa.env.js ./testdata/* --reporter mochawesome --reporter-options autoOpen=true,reportTitle=API\ Test\ Report,code=false
+-t 30000 ./config/properties.js ./testdata/*
+--reporter mochawesome
+--reporter-options autoOpen=false,reportTitle=API\ Test\ Report,code=true

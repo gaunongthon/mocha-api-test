@@ -8,53 +8,26 @@ Details:
 - Based on Mochajs framework https://mochajs.org/
 - Wrapped up by Chakram https://github.com/dareid/chakram
 
-### How do I get set up? ###
-For Windows, download nodejs from: https://nodejs.org/en/download/
-
-For Linux install dependencies:
-See latest and instruction at: https://github.com/nodesource/distributions#debinstall
+### Set up ###
 ```
-sudo apt install curl
-curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
-sudo apt-get install -y nodejs
+npm run setup
 ```
-
-Open Terminal (or GitBash in Windows https://git-scm.com/downloads), installing framework's dependencies with the following commands:
+### Set up serverUrl ###
+Copy `env/testing.env.js`, then modifying the global.serverUrl.
+### Execute test ###
+Execute all test files in `/test` (Full Regression Test) against `testing` environment
 ```
-sudo npm install
-sudo npm install -g mocha
+npm run regression env/testing.env.js
 ```
-
-### Set up endpoint ###
-
-To set up endpoint, opening file `config/qa.env.js`, then modifying the global.endpoint:
+Execute smoke test (a sub-set of test cases) against `testing` environment
 ```
-global.endpoint = "http://your_endpoint_url"
+npm run smoke env/testing.env.js 
 ```
-In order to build a template, I am using the following endpoint
+Execute only 1 test file  against `testing`
 ```
-global.endpoint = "https://reqres.in"
+mocha env/testing.env.js test/functional/template1.js
 ```
-
-### Eexecute test ###
-
-Execute all test files in `/test`
-```
-mocha test/*/*
-```
-
-Execute only 1 test file
-```
-mocha test/functional/template1.js
-```
-
-There is a cool way to execute test with customised options. See `/test/smoke.opts` for an example how to run smoke test:
-```
-mocha --opts test/smoke.opts
-```
-
 ### View test report ###
-
 HTML format report is saved at `mochawesome-report/mochawesome.html`.
 Command line to view report from Terminal Console:
 ```
