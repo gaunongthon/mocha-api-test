@@ -12,7 +12,7 @@
   },
   "scripts": {
     "setup": "npm install && npm install -g mocha && npm install -g mochawesome",
-    "smoke": "mocha ./test/smoketest/*"
+    "smoke_testing_env": "mocha ./test/smoketest/* env/testing.env.js"
   },
   "repository": {}
 }

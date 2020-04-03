@@ -1,0 +1,15 @@
+
+
+  Integration Test Suite
+    ✓ Get index page
+
+
+  1 passing (45ms)
+
+[mochawesome] {
+  "errno": -13,
+  "code": "EACCES",
+  "syscall": "open",
+  "path": "/home/michaelho/Documents/github/mocha-api-test/mochawesome-report/mochawesome.html"
+}
+

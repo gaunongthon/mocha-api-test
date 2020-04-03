@@ -1,1 +1,1 @@
-global.serverUrl = "https://reqres.in";
+global.serverUrl = "http://localhost:3000";
