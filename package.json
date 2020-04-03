@@ -1,5 +1,5 @@
 {
-  "name": "API-Test-Automation-Start-Kit",
+  "name": "micro-service-testing-starter-kit",
   "version": "1.5.0",
   "description": "This is an example of how to use mochajs for APIs/Web-services testing.",
   "main": "lib/chakram.js",
@@ -11,8 +11,7 @@
   },
   "scripts": {
     "setup": "npm install && npm install -g mocha && npm install -g mochawesome",
-    "regression": "mocha test/*/*",
-    "smoke": "mocha test/smoketest/*"
+    "smoke": "mocha --opts test/smoke_test.opts"
   },
   "repository": {}
 }

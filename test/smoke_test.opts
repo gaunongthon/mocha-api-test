@@ -1,0 +1,4 @@
+-t 60000 ./config/properties.js ./test/*/** ./testdata/*
+--reporter mochawesome
+--reporter-options autoOpen=false,reportTitle=API\ Test\ Report,code=true
+--grep @smoke

@@ -1,4 +1,4 @@
-describe("Functional testing GET method", function() {
+describe("Functional testing GET method @smoke", function() {
 
 	// runs before all tests in this block
 	before(function() {
@@ -28,7 +28,10 @@ describe("Functional testing GET method", function() {
 		apiHelper.log(_context, "\nGET: " + req);
 		return chakram.get(req, params)
 		.then(function(apiResponse) {
-			apiHelper.log(_context, "\nRESPONSE: \n" + JSON.stringify(apiResponse.body));
+			apiHelper.log(_context, {
+				title: "apiResponse.body",
+				value: JSON.stringify(apiResponse.body)
+			});
 			//Assert response code
 			expect(apiResponse).to.have.status(200);
 			//Assert value of `page` (2)
